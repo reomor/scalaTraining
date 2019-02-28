@@ -3,29 +3,52 @@ package scalaExercism.SpaceAge
 class SpaceAge {
 }
 
+object EarthYearRelateToPlanet {
+  val Mercury = 0.2408467
+  val Venus = 0.61519726
+  val Mars = 1.8808158
+  val Jupiter = 11.862615
+  val Saturn = 29.447498
+  val Uranus =  84.016846
+  val Neptune = 164.79132
+}
+
 object SpaceAge {
+  val EarthSecondsInOneYear = 31557600
+
+  def relativeToEarth(ageInSeconds: Double, ratio: Double): Double = {
+    onEarth(ageInSeconds) / ratio
+  }
+
   def onEarth(ageInSeconds: Double): Double = {
-    ageInSeconds / 31557600
+    ageInSeconds / EarthSecondsInOneYear
   }
+
   def onMercury(ageInSeconds: Double): Double = {
-    onEarth(ageInSeconds) /  0.2408467
+    relativeToEarth(ageInSeconds, EarthYearRelateToPlanet.Mercury)
   }
+
   def onVenus(ageInSeconds: Double): Double = {
-    onEarth(ageInSeconds) / 0.61519726
+    relativeToEarth(ageInSeconds, EarthYearRelateToPlanet.Venus)
   }
+
   def onMars(ageInSeconds: Double): Double = {
-    onEarth(ageInSeconds) / 1.8808158
+    relativeToEarth(ageInSeconds, EarthYearRelateToPlanet.Mars)
   }
+
   def onJupiter(ageInSeconds: Double): Double = {
-    onEarth(ageInSeconds) / 11.862615
+    relativeToEarth(ageInSeconds, EarthYearRelateToPlanet.Jupiter)
   }
+
   def onSaturn(ageInSeconds: Double): Double = {
-    onEarth(ageInSeconds) / 29.447498
+    relativeToEarth(ageInSeconds, EarthYearRelateToPlanet.Saturn)
   }
+
   def onUranus(ageInSeconds: Double): Double = {
-    onEarth(ageInSeconds) / 84.016846
+    relativeToEarth(ageInSeconds, EarthYearRelateToPlanet.Uranus)
   }
+
   def onNeptune(ageInSeconds: Double): Double = {
-    onEarth(ageInSeconds) / 164.79132
+    relativeToEarth(ageInSeconds, EarthYearRelateToPlanet.Neptune)
   }
 }
