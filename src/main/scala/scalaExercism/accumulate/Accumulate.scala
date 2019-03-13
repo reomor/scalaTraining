@@ -7,8 +7,8 @@ class Accumulate {
     @tailrec
     def tailAccumulate(f: (A) => B, list: List[A], result: List[B]): List[B] = {
       list match {
-        case Nil => result
-        case x :: tailList => tailAccumulate(f, tailList, result :+ f(x))
+        case Nil => result.reverse
+        case x :: tailList => tailAccumulate(f, tailList, f(x) :: result)
       }
     }
     tailAccumulate(f, list, Nil)
