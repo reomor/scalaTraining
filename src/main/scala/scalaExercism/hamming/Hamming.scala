@@ -1,7 +1,10 @@
 package scalaExercism.hamming
 
+import scala.annotation.tailrec
+
 object Hamming {
   def distance(first: String, second: String): Option[Int] = {
+    @tailrec
     def hammingDifference(index: Int, limit: Int, count: Int): Int = {
       if (index >= limit) {
         count
