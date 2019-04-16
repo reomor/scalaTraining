@@ -1,27 +1,17 @@
 package scalaExercism.raindrops
 
 object Raindrops {
-  private def checkDividers(dividend: Int, dividersList: Seq[(Int, String)], rain: List[String]): List[String] = {
-    dividersList match {
-      case Nil => rain
-      case divider :: listTail => {
-        if (dividend % divider._1 == 0) {
-          checkDividers(dividend, listTail, rain :+ divider._2)
-        } else {
-          checkDividers(dividend, listTail, rain)
-        }
-      }
-    }
-  }
-
   def convert(n: Int): String = {
-    val dividers = Seq(3 -> "Pling", 5 -> "Plang", 7 -> "Plong")
-    val strings = checkDividers(n, dividers, Nil)
-    if (strings == Nil) {
+    val result = List(3, 5, 7).filter(divider => n % divider == 0).map {
+      case 3 => "Pling"
+      case 5 => "Plang"
+      case 7 => "Plong"
+      case _ => ""
+    }.mkString("")
+    if (result.isEmpty) {
       n.toString
     } else {
-      strings.mkString("")
+      result
     }
   }
 }
-
